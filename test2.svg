@@ -1,0 +1,40 @@
+<!-- MOCKUP 2: Single Figure + Chat Bubble forming a J -->
+<svg width="200" height="200" viewBox="0 0 200 200"
+     xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF8A00" />
+      <stop offset="100%" stop-color="#FFD700" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="100" fill="url(#gradient2)" />
+
+  <!-- Person's head (white circle) -->
+  <circle cx="60" cy="60" r="18" fill="#FFFFFF" />
+
+  <!-- Person's body (a simple curved shape) -->
+  <path d="
+    M 50,78
+    C 47,120 65,140 80,155
+    C 70,158 55,168 50,182
+    C 85,170 95,163 110,147
+    C 118,138 125,120 126,100
+    Q 128,84 120,74
+    L 90,74
+    Q 70,74 50,78
+    Z
+  " fill="#FFFFFF" />
+
+  <!-- Chat bubble “tail” forming the J shape on the right -->
+  <path d="
+    M 120,75
+    C 145,85 145,115 120,125
+    L 122,135
+    C 135,135 140,145 138,155
+    C 157,140 160,110 158,95
+    C 156,75 140,65 120,75
+    Z
+  " fill="#FFFFFF" />
+</svg>

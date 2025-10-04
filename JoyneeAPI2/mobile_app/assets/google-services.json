@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "953253932852",
+    "project_id": "joynee-5ceb6",
+    "storage_bucket": "joynee-5ceb6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:953253932852:android:ff4babe1bfda6e6564bf61",
+        "android_client_info": {
+          "package_name": "com.joyneeapp.joyneeapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpvaQZ9yat_fEvP9-y3IFqCvScEYGzCtQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

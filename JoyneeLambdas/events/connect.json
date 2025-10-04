@@ -1,0 +1,11 @@
+{
+    "requestContext": {
+        "routeKey": "$connect",
+        "connectionId": "abc123",
+        "authorizer": {
+            "claims": {
+                "sub": "userX"
+            }
+        }
+    }
+}

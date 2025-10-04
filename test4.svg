@@ -1,0 +1,43 @@
+<!-- MOCKUP 4: Minimal “J” + Spark -->
+<svg width="200" height="200" viewBox="0 0 200 200"
+     xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF8A00" />
+      <stop offset="100%" stop-color="#FFD700" />
+    </linearGradient>
+
+    <!-- Star shape as a reusable symbol -->
+    <symbol id="spark" viewBox="0 0 100 100">
+      <path d="
+        M50,0 L61,35 L100,35 L67,57 L80,90 L50,70 L20,90 L33,57 L0,35 L39,35 Z
+      " />
+    </symbol>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="100" fill="url(#gradient4)" />
+
+  <!-- White “J” shape -->
+  <path d="
+    M 130,40
+    L 120,40
+    Q 90,40 90,60
+    L 90,115
+    Q 90,130 80,140
+    Q 70,150 55,150
+    L 50,150
+    Q 40,150 40,160
+    L 40,165
+    Q 40,170 45,170
+    L 50,170
+    Q 75,170 95,150
+    Q 115,130 115,115
+    L 115,60
+    Q 115,40 130,40
+    Z
+  " fill="#FFFFFF" />
+
+  <!-- Spark near the top of the J -->
+  <use href="#spark" x="108" y="25" width="20" height="20" fill="#FFFFFF" />
+</svg>

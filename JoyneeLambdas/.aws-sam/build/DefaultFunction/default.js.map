@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../../../../private/var/folders/9m/ny6r8sc577v_0kqt19mty_hc0000gq/T/tmp69ctsv62/src/default.ts"],
+  "sourcesContent": ["\nimport { APIGatewayEvent, APIGatewayProxyResult } from \"aws-lambda\"\n\nexport const handler = async (event: APIGatewayEvent): Promise<APIGatewayProxyResult> => {\n    return {\n        statusCode: 204,\n        body: 'No content',\n    };\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAGO,IAAM,UAAU,OAAO,UAA2D;AACrF,SAAO;AAAA,IACH,YAAY;AAAA,IACZ,MAAM;AAAA,EACV;AACJ;",
+  "names": []
+}

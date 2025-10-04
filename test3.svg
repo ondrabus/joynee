@@ -1,0 +1,45 @@
+<!-- MOCKUP 3: Two Half-Silhouettes + Speech Bubble -->
+<svg width="200" height="200" viewBox="0 0 200 200"
+     xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF8A00" />
+      <stop offset="100%" stop-color="#FFD700" />
+    </linearGradient>
+  </defs>
+
+  <!-- Orange-yellow background shape (rounded square for variety) -->
+  <rect x="0" y="0" width="200" height="200" rx="50" fill="url(#gradient3)" />
+
+  <!-- Left person silhouette (white) -->
+  <path d="
+    M 50,40
+    C 40,70 40,130 50,160
+    L 90,160
+    C 100,140 100,60 90,40
+    Z
+  " fill="#FFFFFF" />
+
+  <!-- Right person silhouette (white), mirrored from the left -->
+  <path d="
+    M 150,40
+    C 160,70 160,130 150,160
+    L 110,160
+    C 100,140 100,60 110,40
+    Z
+  " fill="#FFFFFF" />
+
+  <!-- Speech bubble in the center, bridging them -->
+  <path d="
+    M 90,70
+    L 110,70
+    Q 130,70 130,90
+    Q 130,110 110,110
+    L 100,120
+    L 100,110
+    L 90,110
+    Q 70,110 70,90
+    Q 70,70 90,70
+    Z
+  " fill="#FFFFFF" />
+</svg>

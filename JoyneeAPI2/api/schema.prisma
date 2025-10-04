@@ -1,0 +1,132 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator zod {
+  provider = "zod-prisma-types"
+}
+generator types {
+     provider = "prisma-types-export"
+     output   = "./prisma-types"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Hashtag {
+  id            Int             @id @default(autoincrement())
+  text          String          @unique
+  eventHashtags BubbleHashtag[]
+  userHashtags  UserHashtag[]
+}
+
+model Account {
+  id        Int      @id @default(autoincrement())
+  name      String
+  active    Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model UserPlaceholder {
+  id                 Int     @id @default(autoincrement())
+  name               String
+  emailPattern       String
+  hashtagSuggestions String?
+}
+
+model User {
+  id                  Int                      @id @default(autoincrement())
+  authId              String                   @unique
+  firstName           String
+  lastName            String
+  /// @zod.custom.use(z.string().datetime({message: "Date must be in ISO 8601 format (YYYY-MM-DDTHH:mm:ssZ)"}))
+  birthDate           DateTime?
+  avatar              String?
+  email               String                   @unique
+  active              Boolean
+  createdAt           DateTime                 @default(now())
+  updatedAt           DateTime                 @updatedAt
+
+  personality         String
+  bio                 String?
+
+  hashtags            UserHashtag[]
+  photos              UserPhoto[]
+  settings            UserSettings[]
+  bubbleSubscriptions UserBubbleSubscription[]
+}
+
+model UserHashtag {
+  user      User    @relation(fields: [userId], references: [id])
+  userId    Int
+  hashtag   Hashtag @relation(fields: [hashtagId], references: [id])
+  hashtagId Int
+  relevance Float
+
+  @@id([userId, hashtagId])
+}
+
+model UserSettings {
+  id     Int    @id @default(autoincrement())
+  key    String
+  value  String
+  userId Int
+  user   User   @relation(fields: [userId], references: [id])
+}
+
+model UserPhoto {
+  id          Int         @id @default(autoincrement())
+  url         String
+  caption     String
+  userId      Int
+  user        User @relation(fields: [userId], references: [id])
+}
+
+model Bubble {
+  id                Int                      @id @default(autoincrement())
+  name              String
+  lang              BubbleLang
+  type              String
+  active            Boolean
+  hashtags          BubbleHashtag[]
+  userSubscriptions UserBubbleSubscription[]
+  createdAt         DateTime                 @default(now())
+  updatedAt         DateTime                 @updatedAt
+}
+
+enum BubbleLang {
+  en
+  cs
+}
+
+enum BubbleType {
+  timeBased
+  locationBased
+  eventBased
+  interestBased
+}
+
+model BubbleHashtag {
+  bubble    Bubble  @relation(fields: [bubbleId], references: [id])
+  bubbleId  Int
+  hashtag   Hashtag @relation(fields: [hashtagId], references: [id])
+  hashtagId Int
+
+  @@id([bubbleId, hashtagId])
+}
+
+model UserBubbleSubscription {
+  id            Int      @id @default(autoincrement())
+  bubble        Bubble   @relation(fields: [bubbleId], references: [id])
+  bubbleId      Int
+  user          User     @relation(fields: [userId], references: [id])
+  userId        Int
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  active        Boolean
+  acceptMatches Boolean
+  weight        Float
+}
